@@ -1,0 +1,2998 @@
+@prefix : <http://www.semanticweb.org/ontologia-viral#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ontologia-viral> .
+
+<http://www.semanticweb.org/ontologia-viral> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/ontologia-viral#TemDNA
+:TemDNA rdf:type owl:ObjectProperty ,
+                 owl:FunctionalProperty ,
+                 owl:ReflexiveProperty ;
+        rdfs:domain :Grupo_I ,
+                    :Grupo_II ,
+                    :Grupo_VII ;
+        rdfs:comment <http://www.semanticweb.org/Virus de DNA> .
+
+
+###  http://www.semanticweb.org/ontologia-viral#TemDuplaFita
+:TemDuplaFita rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ,
+                       owl:ReflexiveProperty ;
+              rdfs:domain :Grupo_I ,
+                          :Grupo_III ,
+                          :Grupo_VII .
+
+
+###  http://www.semanticweb.org/ontologia-viral#TemFitaSimples
+:TemFitaSimples rdf:type owl:ObjectProperty ;
+                rdfs:domain :Grupo_II ,
+                            :Grupo_IV ,
+                            :Grupo_V ,
+                            :Grupo_VI .
+
+
+###  http://www.semanticweb.org/ontologia-viral#TemRNA
+:TemRNA rdf:type owl:ObjectProperty ;
+        rdfs:domain :Grupo_III ,
+                    :Grupo_IV ,
+                    :Grupo_V ,
+                    :Grupo_VI ;
+        rdfs:range :Grupo_III ,
+                   :Grupo_IV ,
+                   :Grupo_V ,
+                   :Grupo_VI ;
+        rdfs:comment <http://www.semanticweb.org/Virus de RNA> .
+
+
+###  http://www.semanticweb.org/ontologia-viral#TemSensoNegativo
+:TemSensoNegativo rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :TemFitaSimples ;
+                  owl:inverseOf :TemSensoPositivo ;
+                  rdf:type owl:FunctionalProperty ;
+                  rdfs:domain :Grupo_IV ;
+                  rdfs:range :Grupo_IV ;
+                  owl:propertyDisjointWith :TemSensoPositivo .
+
+
+###  http://www.semanticweb.org/ontologia-viral#TemSensoPositivo
+:TemSensoPositivo rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :TemFitaSimples ;
+                  rdf:type owl:FunctionalProperty ;
+                  rdfs:domain :Grupo_V ,
+                              :Grupo_VI ;
+                  rdfs:range :Grupo_V ,
+                             :Grupo_VI .
+
+
+###  http://www.semanticweb.org/ontologia-viral#TemTransiçãoReversa
+:TemTransiçãoReversa rdf:type owl:ObjectProperty ,
+                              owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/ontologia-viral#eCircular
+:eCircular rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/ontologia-viral#eLinear
+:eLinear rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/ontologia-viral#eSegmentada
+:eSegmentada rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/ontologia-viral#Especies
+:Especies rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Familia
+:Familia rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Generos
+:Generos rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Grupo
+:Grupo rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :Grupo_I ,
+                   :Grupo_II ,
+                   :Grupo_III ,
+                   :Grupo_IV ,
+                   :Grupo_V ,
+                   :Grupo_VI ,
+                   :Grupo_VII .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Ordem
+:Ordem rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/ontologia-viral#SubFamilia
+:SubFamilia rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tamanho
+:Tamanho rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/ontologia-viral#maiorTamanho
+:maiorTamanho rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :Tamanho ;
+              rdfs:range xsd:decimal ,
+                         xsd:integer ,
+                         xsd:long .
+
+
+###  http://www.semanticweb.org/ontologia-viral#menorTamanho
+:menorTamanho rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :Tamanho ;
+              rdfs:range xsd:decimal ,
+                         xsd:integer ,
+                         xsd:long .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/ontologia-viral#Adenoviridae
+:Adenoviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Alloherpesviridae
+:Alloherpesviridae rdf:type owl:Class ;
+                   rdfs:subClassOf :Herpesvirales .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Alphacoronavirus
+:Alphacoronavirus rdf:type owl:Class ;
+                  rdfs:subClassOf :Orthocoronavirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Alphacoronavirus_1
+:Alphacoronavirus_1 rdf:type owl:Class ;
+                    rdfs:subClassOf :Tegacovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Alphaflexiviridae
+:Alphaflexiviridae rdf:type owl:Class ;
+                   rdfs:subClassOf :Tymovirales ;
+                   rdfs:comment "Tymovirales (tymo, sigla para \"turnip yellow mosaic virus\" + do latim: virales, relativo a vírus) é uma ordem de vírus segundo a classificação taxonômica da ICTV.Na classificação de Baltimore as famílias desta ordem pertencem a classe IV: (+)ssRNA virus. Compreende vírus RNA de cadeia simples não envelopados isométricos." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Alphaherpesvirinae
+:Alphaherpesvirinae rdf:type owl:Class ;
+                    rdfs:subClassOf :Herpesviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Alphainfluenzavirus
+:Alphainfluenzavirus rdf:type owl:Class ;
+                     rdfs:subClassOf :Orthomyxoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Alphaletovirus
+:Alphaletovirus rdf:type owl:Class ;
+                rdfs:subClassOf :Letovirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Alpharetrovirus
+:Alpharetrovirus rdf:type owl:Class ;
+                 rdfs:subClassOf :Retroviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Alphatorquevirus
+:Alphatorquevirus rdf:type owl:Class ;
+                  rdfs:subClassOf :Anelloviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Amapari_virus
+:Amapari_virus rdf:type owl:Class ;
+               rdfs:subClassOf :Tacaribe_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Amdovirus
+:Amdovirus rdf:type owl:Class ;
+           rdfs:subClassOf :Parvovirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Andecovirus
+:Andecovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Deltacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Anelloviridae
+:Anelloviridae rdf:type owl:Class ;
+               rdfs:subClassOf :Grupo_II .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Aphthovirus
+:Aphthovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Picornaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Aquabirnavirus
+:Aquabirnavirus rdf:type owl:Class ;
+                rdfs:subClassOf :Birnaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Aquamavirus
+:Aquamavirus rdf:type owl:Class ;
+             rdfs:subClassOf :Avihepatovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Aquareovirus
+:Aquareovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Orthoreovirus ;
+              rdfs:comment "espécie tipo: Aquareovirus A." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Arenaviridae
+:Arenaviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_V ;
+              rdfs:comment "Arenaviridae é uma família de vírus normalmente associados a roedores. A ela pertence, entre outros, o SP H 114202 (Arenavírus), causador de febre hemorrágica humana." ,
+                           "Os arenavírus podem ser divididos em dois sorogrupos, que diferem geneticamente e pela distribuição geográfica:" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Arteriviridae
+:Arteriviridae rdf:type owl:Class ;
+               rdfs:subClassOf :Nidovirales .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Ascoviridae
+:Ascoviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Asfarviridae
+:Asfarviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Astroviridae
+:Astroviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_IV .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Avian_coronavirus
+:Avian_coronavirus rdf:type owl:Class ;
+                   rdfs:subClassOf :Igacovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Avibirnavirus
+:Avibirnavirus rdf:type owl:Class ;
+               rdfs:subClassOf :Birnaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Avihepadnavirus
+:Avihepadnavirus rdf:type owl:Class ;
+                 rdfs:subClassOf :Hepadnaviridae ;
+                 rdfs:comment "infecta aves" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Avihepatovirus
+:Avihepatovirus rdf:type owl:Class ;
+                rdfs:subClassOf :Picornaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Avulavirus
+:Avulavirus rdf:type owl:Class ;
+            rdfs:subClassOf :Paramyxovirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Baculoviridae
+:Baculoviridae rdf:type owl:Class ;
+               rdfs:subClassOf :Caudovirales .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Barnaviridae
+:Barnaviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_IV .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bat_Hp-betacoronavirus_Zhejiang2013
+:Bat_Hp-betacoronavirus_Zhejiang2013 rdf:type owl:Class ;
+                                     rdfs:subClassOf :Hibecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bat_coronavirus_CDPHE15
+:Bat_coronavirus_CDPHE15 rdf:type owl:Class ;
+                         rdfs:subClassOf :Colacovirus ;
+                         rdfs:comment "Coronavírus de morcego CDPHE15" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bat_coronavirus_HKU10
+:Bat_coronavirus_HKU10 rdf:type owl:Class ;
+                       rdfs:subClassOf :Decacovirus ;
+                       rdfs:comment "Coronavirus de morcego HKU10" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Beluga_whale_coronavirus_SW1
+:Beluga_whale_coronavirus_SW1 rdf:type owl:Class ;
+                              rdfs:subClassOf :Cegacovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Betacoronavirus
+:Betacoronavirus rdf:type owl:Class ;
+                 rdfs:subClassOf :Coronaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Betacoronavirus_1
+:Betacoronavirus_1 rdf:type owl:Class ;
+                   rdfs:subClassOf :Embecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Betaflexiviridae
+:Betaflexiviridae rdf:type owl:Class ;
+                  rdfs:subClassOf :Tymovirales .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Betaherpesvirinae
+:Betaherpesvirinae rdf:type owl:Class ;
+                   rdfs:subClassOf :Herpesviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Betainfluenzavirus
+:Betainfluenzavirus rdf:type owl:Class ;
+                    rdfs:subClassOf :Orthomyxoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Betaretrovirus
+:Betaretrovirus rdf:type owl:Class ;
+                rdfs:subClassOf :Retroviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Betatorquevirus
+:Betatorquevirus rdf:type owl:Class ;
+                 rdfs:subClassOf :Anelloviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Birnaviridae
+:Birnaviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_III .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Blosnavirus
+:Blosnavirus rdf:type owl:Class ;
+             rdfs:subClassOf :Birnaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bocavirus
+:Bocavirus rdf:type owl:Class ;
+           rdfs:subClassOf :Parvovirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bornaviridae
+:Bornaviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Mononegavirales .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bovispumavirus
+:Bovispumavirus rdf:type owl:Class ;
+                rdfs:subClassOf :Spumavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Brevidensovirus
+:Brevidensovirus rdf:type owl:Class ;
+                 rdfs:subClassOf :Densovirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bromoviridae
+:Bromoviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_IV .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bulbul_coronavirus_HKU11
+:Bulbul_coronavirus_HKU11 rdf:type owl:Class ;
+                          rdfs:subClassOf :Buldecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Buldecovirus
+:Buldecovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Deltacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bunyaviridae
+:Bunyaviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_V ;
+              rdfs:comment "Bunyaviridae ou buniavírus é uma família de vírus RNA com fita simples, segmentada, de sentido negativo, com replicação ambissenso, diâmetro de 80 a 120nm. Usam roedores como reservatórios e artrópodes para como vetores. Podem ser encontrados em todo o mundo e ocasionalmente infectam humanos. Infectam células nervosas e endotélio vascular. A espécie mais famosa dessa família é o Hantavírus." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Caliciviridae
+:Caliciviridae rdf:type owl:Class ;
+               rdfs:subClassOf :Grupo_IV ;
+               rdfs:comment "Os calicivírus, membros da família Caliciviridae, são um grupo de vírus de genoma de RNA simples de sentido positivo (usado directamente na síntese das proteínas).[1] Não possuem envelope bilípidico e são extremamente resistentes. Causam gastroenterites limitadas com diarreia, vómitos, dor abdominal e nauseas, após transmissão em comida, objectos ou água infectada com vírus proveniente de fezes." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Cardiovirus
+:Cardiovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Picornaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Caudovirales
+:Caudovirales rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Caulimoviridae
+:Caulimoviridae rdf:type owl:Class ;
+                rdfs:subClassOf :Grupo_VII .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Cegacovirus
+:Cegacovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Gammacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Chapare_virus
+:Chapare_virus rdf:type owl:Class ;
+               rdfs:subClassOf :Tacaribe_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#China_Rattus_coronavirus_HKU24
+:China_Rattus_coronavirus_HKU24 rdf:type owl:Class ;
+                                rdfs:subClassOf :Embecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Chrysoviridae
+:Chrysoviridae rdf:type owl:Class ;
+               rdfs:subClassOf :Grupo_III .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Circoviridae
+:Circoviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_II .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Circovirus
+:Circovirus rdf:type owl:Class ;
+            rdfs:subClassOf :Circoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Closteroviridae
+:Closteroviridae rdf:type owl:Class ;
+                 rdfs:subClassOf :Grupo_IV .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Colacovirus
+:Colacovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Alphacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Coltivirus
+:Coltivirus rdf:type owl:Class ;
+            rdfs:subClassOf :Reoviridae ;
+            rdfs:comment "espécie tipo: Vírus da febre da carraça do Colorado (CTFV)." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Common_moorhen_coronavirus_HKU21
+:Common_moorhen_coronavirus_HKU21 rdf:type owl:Class ;
+                                  rdfs:subClassOf :Moordecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Comoviridae
+:Comoviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_IV .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Coronaviridae
+:Coronaviridae rdf:type owl:Class ;
+               rdfs:subClassOf :Nidovirales ;
+               rdfs:comment "Coronaviridae é uma família de vírus de ARN monocatenário de sentido positivo e com envoltura. O seu genoma possui um comprimento de 26 a 32 kb. As partículas destes vírus são esféricas e estão tipicamente decoradas com grandes (~20 nm) projeções que saem da sua superfície com a forma de pétala, que são os “peplómeros” ou “espículas”, as quais, nas micrografias de microscópio electrónico, criam uma imagem que se parece com uma coroa solar. Muitos membros desta família são comumente denominados coronavirus." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Coronavirus_HKU15
+:Coronavirus_HKU15 rdf:type owl:Class ;
+                   rdfs:subClassOf :Buldecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Corticoviridae
+:Corticoviridae rdf:type owl:Class ;
+                rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Cosavirus
+:Cosavirus rdf:type owl:Class ;
+           rdfs:subClassOf :Picornaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Crocarterivirinae
+:Crocarterivirinae rdf:type owl:Class ;
+                   rdfs:subClassOf :Arteriviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Cyclovirus
+:Cyclovirus rdf:type owl:Class ;
+            rdfs:subClassOf :Circoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Cypovirus
+:Cypovirus rdf:type owl:Class ;
+           rdfs:subClassOf :Reoviridae ;
+           rdfs:comment "espécie tipo: Cypovirus 1 (CPV 1)." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Cystoviridae
+:Cystoviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_III .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Decacovirus
+:Decacovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Alphacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Deltacoronavirus
+:Deltacoronavirus rdf:type owl:Class ;
+                  rdfs:subClassOf :Coronaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Deltainfluenzavirus
+:Deltainfluenzavirus rdf:type owl:Class ;
+                     rdfs:subClassOf :Orthomyxoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Deltaretrovirus
+:Deltaretrovirus rdf:type owl:Class ;
+                 rdfs:subClassOf :Retroviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Densovirinae
+:Densovirinae rdf:type owl:Class ;
+              rdfs:subClassOf :Parvoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Densovirus
+:Densovirus rdf:type owl:Class ;
+            rdfs:subClassOf :Densovirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Dependovirus
+:Dependovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Parvovirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Dicipivirus
+:Dicipivirus rdf:type owl:Class ;
+             rdfs:subClassOf :Picornaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Dicistroviridae
+:Dicistroviridae rdf:type owl:Class ;
+                 rdfs:subClassOf :Picornavirales .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Dronavirus
+:Dronavirus rdf:type owl:Class ;
+            rdfs:subClassOf :Birnaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Duvinacovirus
+:Duvinacovirus rdf:type owl:Class ;
+               rdfs:subClassOf :Alphacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Embecovirus
+:Embecovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Betacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Endornaviridae
+:Endornaviridae rdf:type owl:Class ;
+                rdfs:subClassOf :Grupo_III .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Enterovirus
+:Enterovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Picornaviridae ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :eCircular ;
+                               owl:someValuesFrom :Enterovirus
+                             ] .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Epsilonretrovirus
+:Epsilonretrovirus rdf:type owl:Class ;
+                   rdfs:subClassOf :Retroviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Equarterivirinae
+:Equarterivirinae rdf:type owl:Class ;
+                  rdfs:subClassOf :Arteriviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Equispumavirus
+:Equispumavirus rdf:type owl:Class ;
+                rdfs:subClassOf :Spumavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Erbovirus
+:Erbovirus rdf:type owl:Class ;
+           rdfs:subClassOf :Picornaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Erythrovirus
+:Erythrovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Parvovirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Eucampyvirinae
+:Eucampyvirinae rdf:type owl:Class ;
+                rdfs:subClassOf :Myoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Felispumavirus
+:Felispumavirus rdf:type owl:Class ;
+                rdfs:subClassOf :Spumavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Ferret_coronavirus
+:Ferret_coronavirus rdf:type owl:Class ;
+                    rdfs:subClassOf :Minacovirus ;
+                    rdfs:comment "Coronavírus do furão" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Fijivirus
+:Fijivirus rdf:type owl:Class ;
+           rdfs:subClassOf :Reoviridae ;
+           rdfs:comment "espécie tipo: Vírus da doença de Fiji." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Filoviridae
+:Filoviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Mononegavirales ;
+             rdfs:comment "Os filovírus, membros da família Filoviridae, fazem parte de um grupo de vírus particularmente mortal para o organismo humano.O primeiro filovírus de que se tem história é o Marburg que foi descoberto na cidade de mesmo nome na Alemanha em macacos que vieram da África para estudos em 1967. O segundo vírus descoberto dessa família, e também o mais famoso, foi o Ebola que foi isolado pela primeira vez em 1976 a partir de uma epidemia de febre hemorrágica que ocorreu próximo ao rio Ebola." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Flaviviridae
+:Flaviviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_IV ;
+              rdfs:comment """Flaviviridae é uma família de vírus. Os vectores são essencialmente artrópodes. A família é composta pelos seguintes géneros:
+
+    Género Flavivirus (espécie-tipo: vírus da febre amarela; também o vírus do Nilo ocidental e o dengue. Contém 67 espécies de vírus identificadas""" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Flexal_virus
+:Flexal_virus rdf:type owl:Class ;
+              rdfs:subClassOf :Tacaribe_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Fuselloviridae
+:Fuselloviridae rdf:type owl:Class ;
+                rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Gammacoronavirus
+:Gammacoronavirus rdf:type owl:Class ;
+                  rdfs:subClassOf :Coronaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Gammaflexiviridae
+:Gammaflexiviridae rdf:type owl:Class ;
+                   rdfs:subClassOf :Tymovirales .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Gammaherpesvirinae
+:Gammaherpesvirinae rdf:type owl:Class ;
+                    rdfs:subClassOf :Herpesviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Gammainfluenzavirus
+:Gammainfluenzavirus rdf:type owl:Class ;
+                     rdfs:subClassOf :Orthomyxoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Gammaretrovirus
+:Gammaretrovirus rdf:type owl:Class ;
+                 rdfs:subClassOf :Retroviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Gammatorquevirus
+:Gammatorquevirus rdf:type owl:Class ;
+                  rdfs:subClassOf :Anelloviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Geminiviridae
+:Geminiviridae rdf:type owl:Class ;
+               rdfs:subClassOf :Grupo_II .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Grupo_I
+:Grupo_I rdf:type owl:Class ;
+         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                           owl:onProperty :TemDNA ;
+                           owl:someValuesFrom :Grupo_I
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :TemDuplaFita ;
+                           owl:someValuesFrom :Grupo_I
+                         ] ;
+         rdfs:comment "Os integrantes do grupo I apresentam genoma circular ou linear, com tamanho variando de 5 a 1180 Kb. Os maiores genomas virais conhecidos até então são encontrados em componentes deste grupo." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Grupo_II
+:Grupo_II rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :TemDNA ;
+                            owl:someValuesFrom :Grupo_II
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :TemFitaSimples ;
+                            owl:someValuesFrom :Grupo_II
+                          ] .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Grupo_III
+:Grupo_III rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :TemDuplaFita ;
+                             owl:someValuesFrom :Grupo_III
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TemRNA ;
+                             owl:someValuesFrom :Grupo_III
+                           ] ;
+           rdfs:comment "Vírus dsRNA (do inglês, double - stranded RNA viruses) são vírus que possuem material genético constituído por RNA fita dupla" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Grupo_IV
+:Grupo_IV rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :TemFitaSimples ;
+                            owl:someValuesFrom :Grupo_IV
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :TemRNA ;
+                            owl:someValuesFrom :Grupo_IV
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :TemSensoPositivo ;
+                            owl:someValuesFrom :Grupo_IV
+                          ] ;
+          rdfs:comment "Vírus (+)ssRNA (do inglês, positive-sense single-stranded RNA viruses) são vírus que possuem material genético constituído por RNA de cadeia simples e senso positivo." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Grupo_V
+:Grupo_V rdf:type owl:Class ;
+         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                           owl:onProperty :TemFitaSimples ;
+                           owl:someValuesFrom :Grupo_V
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :TemRNA ;
+                           owl:someValuesFrom :Grupo_V
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :TemSensoNegativo ;
+                           owl:someValuesFrom :Grupo_V
+                         ] ;
+         rdfs:comment "Vírus (-)ssRNA (do inglês, negative-sense single-stranded RNA viruses) são vírus que possuem material genético constituído por RNA fita simples senso negativo. No Sistema de Classificação de Baltimore, tais vírus pertencem ao grupo V, que compreende 8 famílias virais." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Grupo_VI
+:Grupo_VI rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :TemRNA ;
+                            owl:someValuesFrom :Grupo_VI
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :TemTransiçãoReversa ;
+                            owl:someValuesFrom :Grupo_VI
+                          ] ;
+          rdfs:comment "Vírus ssRNA-RT (do inglês, Single - stranded RNA reverse-transcribing viruses) são vírus que possuem genoma constituído por RNA fita simples senso positivo e que replicam o material genético gerando moléculas de DNA dupla fita (dsDNA) intermediárias. Neste processo é empregada a enzima denominada Transcriptase Reversa (RT)." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Grupo_VII
+:Grupo_VII rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :TemDNA ;
+                             owl:someValuesFrom :Grupo_VII
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TemTransiçãoReversa ;
+                             owl:someValuesFrom :Grupo_VII
+                           ] ;
+           rdfs:comment "Vírus dsDNA-RT (do inglês, Double - stranded DNA reverse-transcribing viruses) são vírus que possuem genoma constituído por DNA fita dupla e que replicam o seu material genético gerando moléculas de RNA fita simples senso positivo ((+)ssRNA) intermediárias, por meio da ação da enzima transcriptase reversa." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Guanarito_virus
+:Guanarito_virus rdf:type owl:Class ;
+                 rdfs:subClassOf :Tacaribe_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Hantavirus
+:Hantavirus rdf:type owl:Class ;
+            rdfs:subClassOf :Bunyaviridae ;
+            rdfs:comment "Orthohantavírus é um gênero que agrupa vários vírus ARN, pertencente à família Hantaviridae. São vírus esféricos, envelopados, medem cerca de 80 a 120nm, possuem RNA viral de fita simples, trissegmentado, com polaridade negativa transmitidos por roedores. Estão amplamente distribuídos pelo mundo." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Hedgehog_coronavirus_1
+:Hedgehog_coronavirus_1 rdf:type owl:Class ;
+                        rdfs:subClassOf :Merbecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Henipavirus
+:Henipavirus rdf:type owl:Class ;
+             rdfs:subClassOf :Paramyxovirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Hepadnaviridae
+:Hepadnaviridae rdf:type owl:Class ;
+                rdfs:subClassOf :Grupo_VII ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :eSegmentada ;
+                                  owl:someValuesFrom :Hepadnaviridae
+                                ] ;
+                rdfs:comment "É a família do vírus da hepatite B." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Hepatovirus
+:Hepatovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Picornaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Hepeviridae
+:Hepeviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_IV .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Herdecovirus
+:Herdecovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Deltacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Heroarterivirinae
+:Heroarterivirinae rdf:type owl:Class ;
+                   rdfs:subClassOf :Arteriviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Herpesvirales
+:Herpesvirales rdf:type owl:Class ;
+               rdfs:subClassOf :Grupo_I ;
+               rdfs:comment <herpes, arrepio + do latim: virales relativo a vírus> .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Herpesviridae
+:Herpesviridae rdf:type owl:Class ;
+               rdfs:subClassOf :Herpesvirales .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Herpetohepadnavirus
+:Herpetohepadnavirus rdf:type owl:Class ;
+                     rdfs:subClassOf :Hepadnaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Hibecovirus
+:Hibecovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Betacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Human_coronavirus_229E
+:Human_coronavirus_229E rdf:type owl:Class ;
+                        rdfs:subClassOf :Duvinacovirus ;
+                        rdfs:comment "Coronavírus humano 229E" ,
+                                     "Coronavírus humano 229E (HCoV-229E, Human coronavirus 229E) é uma espécie de coronavírus que infecta humanos e morcegos.O vírus infectante é um vírus envelopado de sentido positivo, com RNA fita simples, que entra na célula hospedeira por ligação ao receptor de APN. Juntamente com o coronavírus humano OC43, é um dos vírus responsáveis pelo resfriado comum. A espécie é um membro do gênero Alphacoronavirus e do subgênero Duvinacovirus." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Human_coronavirus_HKU1
+:Human_coronavirus_HKU1 rdf:type owl:Class ;
+                        rdfs:subClassOf :Embecovirus ;
+                        rdfs:comment "Coronavírus humano HKU1 (HCoV-HKU1, Human coronavirus HKU1) é uma espécie de coronavírus originário de ratos infectados.Foi descoberto em janeiro de 2005 em dois pacientes em Hong Kong." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Human_coronavirus_NL63
+:Human_coronavirus_NL63 rdf:type owl:Class ;
+                        rdfs:subClassOf :Setracovirus ;
+                        rdfs:comment """Coronavírus humano NL63 (HCoV-NL63, Human coronavirus NL63) é uma espécie de coronavírus que foi identificada no final de 2004 em uma criança de sete meses com bronquiolite nos Países Baixos.
+O vírus é encontrado principalmente em crianças pequenas, idosos e pacientes imunocomprometidos com doença respiratória aguda. Também possui uma associação sazonal em climas temperados. Um estudo realizado em Amsterdã estimou a presença de HCoV-NL63 em aproximadamente 4,7% das doenças respiratórias comuns.""" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Human_coronavirus_OC43
+:Human_coronavirus_OC43 rdf:type owl:Class ;
+                        rdfs:subClassOf :Betacoronavirus_1 ;
+                        rdfs:comment "Coronavírus humano OC43 (HCoV-OC43, Human coronavirus OC43) é um membro da espécie Betacoronavírus 1, que infecta humanos e bovinos." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Hypoviridae
+:Hypoviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_III .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Idnoreovirus
+:Idnoreovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Reoviridae ;
+              rdfs:comment "espécie tipo: Idnoreovirus 1." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Iflaviridae
+:Iflaviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Picornavirales .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Igacovirus
+:Igacovirus rdf:type owl:Class ;
+            rdfs:subClassOf :Cegacovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Inoviridae
+:Inoviridae rdf:type owl:Class ;
+            rdfs:subClassOf :Grupo_II .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Ippy_virus
+:Ippy_virus rdf:type owl:Class ;
+            rdfs:subClassOf :LCMV-Lassa_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Iridoviridae
+:Iridoviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Isavirus
+:Isavirus rdf:type owl:Class ;
+          rdfs:subClassOf :Orthomyxoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Iteravirus
+:Iteravirus rdf:type owl:Class ;
+            rdfs:subClassOf :Densovirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Junin_virus
+:Junin_virus rdf:type owl:Class ;
+             rdfs:subClassOf :Tacaribe_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Kobuvirus
+:Kobuvirus rdf:type owl:Class ;
+           rdfs:subClassOf :Picornaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#LCMV-Lassa_vírus
+:LCMV-Lassa_vírus rdf:type owl:Class ;
+                  rdfs:subClassOf :Arenaviridae ;
+                  rdfs:comment "Velho Mundo" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Lassa_virus
+:Lassa_virus rdf:type owl:Class ;
+             rdfs:subClassOf :LCMV-Lassa_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Latino_virus
+:Latino_virus rdf:type owl:Class ;
+              rdfs:subClassOf :Tacaribe_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Lentivirus
+:Lentivirus rdf:type owl:Class ;
+            rdfs:subClassOf :Retroviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Letovirinae
+:Letovirinae rdf:type owl:Class ;
+             rdfs:subClassOf :Coronaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Leviviridae
+:Leviviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_IV .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Luchacovirus
+:Luchacovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Alphacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Lucheng_Rn_rat_coronavirus
+:Lucheng_Rn_rat_coronavirus rdf:type owl:Class ;
+                            rdfs:subClassOf :Luchacovirus ;
+                            rdfs:comment "Coronavírus da rato Lucheng Rn" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Luteoviridae
+:Luteoviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_IV .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Lymphocytic_choriomeningitis_vírus
+:Lymphocytic_choriomeningitis_vírus rdf:type owl:Class ;
+                                    rdfs:subClassOf :LCMV-Lassa_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Machupo_virus
+:Machupo_virus rdf:type owl:Class ;
+               rdfs:subClassOf :Tacaribe_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Malacoherpesviridae
+:Malacoherpesviridae rdf:type owl:Class ;
+                     rdfs:subClassOf :Herpesvirales .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Marnaviridae
+:Marnaviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Picornavirales .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Megrivirus
+:Megrivirus rdf:type owl:Class ;
+            rdfs:subClassOf :Picornaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Merbecovirus
+:Merbecovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Betacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Metahepadnavirus
+:Metahepadnavirus rdf:type owl:Class ;
+                  rdfs:subClassOf :Hepadnaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Metapneumovirus
+:Metapneumovirus rdf:type owl:Class ;
+                 rdfs:subClassOf :Pneumovirinae ;
+                 rdfs:comment "O Metapneumovírus humano (hMPV) é um RNA vírus da família Paramyxoviridae e está estreitamente aparentado com o metapneumovírus das aves (aMPV). Foi isolado em 2001 na Holanda.É um dos vírus mais frequentes das infeções do trato respiratório nas crianças, depois do virus sincicial respiratório." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Metaviridae
+:Metaviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_VI .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Microhyla_letovirus_1
+:Microhyla_letovirus_1 rdf:type owl:Class ;
+                       rdfs:subClassOf :Milecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Microviridae
+:Microviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_II .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Middle_East_respiratory_syndrome-related_coronavirus
+:Middle_East_respiratory_syndrome-related_coronavirus rdf:type owl:Class ;
+                                                      rdfs:subClassOf :Merbecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Milecovirus
+:Milecovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Alphaletovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Mimiviridae
+:Mimiviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Minacovirus
+:Minacovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Alphacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Miniopterus_bat_coronavirus_1
+:Miniopterus_bat_coronavirus_1 rdf:type owl:Class ;
+                               rdfs:subClassOf :Minunacovirus ;
+                               rdfs:comment "coronavírus do morcego Miniopterus" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Miniopterus_bat_coronavirus_HKU8
+:Miniopterus_bat_coronavirus_HKU8 rdf:type owl:Class ;
+                                  rdfs:subClassOf :Minunacovirus ;
+                                  rdfs:comment "coronavírus do morcego Miniopterus HKU8" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Mink_coronavirus_1
+:Mink_coronavirus_1 rdf:type owl:Class ;
+                    rdfs:subClassOf :Minacovirus ;
+                    rdfs:comment "Coronavírus do visom 1" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Minunacovirus
+:Minunacovirus rdf:type owl:Class ;
+               rdfs:subClassOf :Alphacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Mobala_virus
+:Mobala_virus rdf:type owl:Class ;
+              rdfs:subClassOf :LCMV-Lassa_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Mononegavirales
+:Mononegavirales rdf:type owl:Class ;
+                 rdfs:subClassOf :Grupo_V ;
+                 owl:disjointWith :Ophioviridae ;
+                 rdfs:comment "Mononegavirales (do grego: mono, único; + nega, relativo ao RNA anti-sentido + do latim: virales, relativo a vírus) é uma ordem de vírus segundo a classificação taxonômica da ICTV.Na classificação de Baltimore as famílias desta ordem pertencem a classe V: (-)ssRNA virus. Compreende vírus não-segmentados e de RNA anti-sentido de cadeia simples." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Moordecovirus
+:Moordecovirus rdf:type owl:Class ;
+               rdfs:subClassOf :Deltacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Mopeia_virus
+:Mopeia_virus rdf:type owl:Class ;
+              rdfs:subClassOf :LCMV-Lassa_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Morbillivirus
+:Morbillivirus rdf:type owl:Class ;
+               rdfs:subClassOf :Paramyxovirinae ;
+               rdfs:comment "Morbillivirus é um género de vírus com invólucro de ARN de cadeia simples e polaridade negativa pertencente à família de vírus Paramyxoviridae e à ordem Mononegavirales. Este género compreende vários membros que causam infecções em humanos e outros animais, com especial relevância para o vírus do sarampo. Membros deste género têm uma importância global, não só a nível de saúde pública mas também na pecuária e conservação da vida selvagem" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Munia_coronavirus_HKU13
+:Munia_coronavirus_HKU13 rdf:type owl:Class ;
+                         rdfs:subClassOf :Buldecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Murine_coronavirus
+:Murine_coronavirus rdf:type owl:Class ;
+                    rdfs:subClassOf :Embecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Mycoreovirus
+:Mycoreovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Reoviridae ;
+              rdfs:comment "espécie tipo: Mycoreovirus 1." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Myotacovirus
+:Myotacovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Alphacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Myotis_ricketti_alphacoronavirus_Sax-2011
+:Myotis_ricketti_alphacoronavirus_Sax-2011 rdf:type owl:Class ;
+                                           rdfs:subClassOf :Myotacovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Myoviridae
+:Myoviridae rdf:type owl:Class ;
+            rdfs:subClassOf :Caudovirales ;
+            rdfs:comment "Myoviridae (do grego: myo, músculo + viridae, relativo à família) é uma família de vírus da ordem Caudovirales. Os myovírus infectam bactérias e archaea. Possuem partículas virais complexas, as quais apresentam cabeça, cauda e fibras." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#NL63-related_bat_coronavirus_strain_BtKYNL63-9b
+:NL63-related_bat_coronavirus_strain_BtKYNL63-9b rdf:type owl:Class ;
+                                                 rdfs:subClassOf :Setracovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Nairovirus
+:Nairovirus rdf:type owl:Class ;
+            rdfs:subClassOf :Bunyaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Nanoviridae
+:Nanoviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_II .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Narnaviridae
+:Narnaviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_IV .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Nidovirales
+:Nidovirales rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_IV ;
+             owl:disjointWith :Picornavirales ;
+             rdfs:comment "Nidovirales (do latim: nidos, ninho + virales, relativo a vírus), (+)ssRNA virus. Compreende vírus envelopados e com nucleocapsídeo de simetria helicoidal" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Night_heron_coronavirus_HKU19
+:Night_heron_coronavirus_HKU19 rdf:type owl:Class ;
+                               rdfs:subClassOf :Herdecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Nimaviridae
+:Nimaviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Nobecovirus
+:Nobecovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Betacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Nodaviridae
+:Nodaviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_IV .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Nyctacovirus
+:Nyctacovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Alphacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Nyctalus_velutinus_alphacoronavirus_SC-2013
+:Nyctalus_velutinus_alphacoronavirus_SC-2013 rdf:type owl:Class ;
+                                             rdfs:subClassOf :Nyctacovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Oliveros_virus
+:Oliveros_virus rdf:type owl:Class ;
+                rdfs:subClassOf :Tacaribe_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Ophioviridae
+:Ophioviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_V .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Orbivirus
+:Orbivirus rdf:type owl:Class ;
+           rdfs:subClassOf :Reoviridae ;
+           rdfs:comment "espécie tipo: Vírus da língua azul." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Orthobunyavirus
+:Orthobunyavirus rdf:type owl:Class ;
+                 rdfs:subClassOf :Bunyaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Orthocoronavirinae
+:Orthocoronavirinae rdf:type owl:Class ;
+                    rdfs:subClassOf :Coronaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Orthohepadnavirus
+:Orthohepadnavirus rdf:type owl:Class ;
+                   rdfs:subClassOf :Hepadnaviridae ;
+                   rdfs:comment "infecta mamíferos" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Orthohepevirus
+:Orthohepevirus rdf:type owl:Class ;
+                rdfs:subClassOf :Hepeviridae ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :eLinear ;
+                                  owl:someValuesFrom :Hepeviridae
+                                ] .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Orthomyxoviridae
+:Orthomyxoviridae rdf:type owl:Class ;
+                  rdfs:subClassOf :Grupo_V ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :eCircular ;
+                                    owl:someValuesFrom :Orthomyxoviridae
+                                  ] ;
+                  rdfs:comment "Orthomyxoviridaeé uma família de vírus RNA. Inclui sete gêneros: Influenzavirus A, Influenzavirus B, Influenzavirus C, Influenzavirus D, Isavirus, Thogotovirus e Quaranjavirus. Os primeiros quatro gêneros contêm vírus que causam gripe em vertebrados, incluindo aves (ver também: gripe aviária), humanos e outros mamíferos. O Isavirus infecta o salmão; os thogotovírus são arbovírus, infectando vertebrados e invertebrados, como carrapatos e mosquitos." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Orthoreovirus
+:Orthoreovirus rdf:type owl:Class ;
+               rdfs:subClassOf :Reoviridae ;
+               rdfs:comment "espécie tipo: Orthoreovírus dos mamíferos." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Oryzavirus
+:Oryzavirus rdf:type owl:Class ;
+            rdfs:subClassOf :Reoviridae ;
+            rdfs:comment "espécie tipo: Vírus do raquitismo andrajoso do arroz." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Ounavirinae
+:Ounavirinae rdf:type owl:Class ;
+             rdfs:subClassOf :Myoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Papillomaviridae
+:Papillomaviridae rdf:type owl:Class ;
+                  rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Parahepadnavirus
+:Parahepadnavirus rdf:type owl:Class ;
+                  rdfs:subClassOf :Hepadnaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Paramyxoviridae
+:Paramyxoviridae rdf:type owl:Class ;
+                 rdfs:subClassOf :Mononegavirales ;
+                 rdfs:comment "Os paramixovírus, membros da família Paramyxoviridae, compõem um grupo de vírus envelopados com genoma de RNA simples de sentido negativo (é a cópia que é usada para a síntese proteica). A sua transmissão é por gotas expelidas em espirros ou tosse" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Paramyxovirinae
+:Paramyxovirinae rdf:type owl:Class ;
+                 rdfs:subClassOf :Paramyxoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Paraná_virus
+:Paraná_virus rdf:type owl:Class ;
+              rdfs:subClassOf :Tacaribe_vírus ;
+              rdfs:comment "Paraná virus é um arenavirus do Novo Mundo encontrado em ratos Oryzomys buccinatus que existem no Paraguai, Brasil e Argentina. É similar a outros dez arenavirus classificados como complexo tacaribe(TCRV), mas não há casos registrados de transmissão de febre hemorrágica viral em humanos." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Parechovirus
+:Parechovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Picornaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Partitiviridae
+:Partitiviridae rdf:type owl:Class ;
+                rdfs:subClassOf :Grupo_III .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Parvoviridae
+:Parvoviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_II ;
+              rdfs:comment "A família Parvoviridae abrange os menores vírus conhecidos e alguns dos mais resistentes ao ambiente." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Parvovirinae
+:Parvovirinae rdf:type owl:Class ;
+              rdfs:subClassOf :Parvoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Parvovirus
+:Parvovirus rdf:type owl:Class ;
+            rdfs:subClassOf :Parvovirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Pedacovirus
+:Pedacovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Alphacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Peduovirinae
+:Peduovirinae rdf:type owl:Class ;
+              rdfs:subClassOf :Myoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Pefudensovirus
+:Pefudensovirus rdf:type owl:Class ;
+                rdfs:subClassOf :Densovirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Phlebovirus
+:Phlebovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Bunyaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Phycodnaviridae
+:Phycodnaviridae rdf:type owl:Class ;
+                 rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Phytoreovirus
+:Phytoreovirus rdf:type owl:Class ;
+               rdfs:subClassOf :Reoviridae ;
+               rdfs:comment "espécie tipo: Vírus do nanismo do arroz." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Pichinde_virus
+:Pichinde_virus rdf:type owl:Class ;
+                rdfs:subClassOf :Tacaribe_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Picobirnaviridae
+:Picobirnaviridae rdf:type owl:Class ;
+                  rdfs:subClassOf :Grupo_III .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Picobirnavirus
+:Picobirnavirus rdf:type owl:Class ;
+                rdfs:subClassOf :Picobirnaviridae ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :eCircular ;
+                                  owl:someValuesFrom :Picobirnavirus
+                                ] .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Picornavirales
+:Picornavirales rdf:type owl:Class ;
+                rdfs:subClassOf :Grupo_IV .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Picornaviridae
+:Picornaviridae rdf:type owl:Class ;
+                rdfs:subClassOf :Picornavirales ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :eCircular ;
+                                  owl:someValuesFrom :Picornaviridae
+                                ] ;
+                rdfs:comment """Os picornavírus (família: Picornaviridae[1]) são pequenos vírus(+)ss RNA icosaédricos, sendo o mais conhecido rinovírus que em seres humanos causa o resfriado comum. A característica mais comum entre todos os membros de picornavírus são: 
+(i) a presença três capsídeos com proteínas Beta Barril cujo genoma se comporta como um mensageiro policistrônico; 
+(ii) tradução mediada por poliproteínas extensas processadas e codificadas por proteases de cisteínas do hospedeiro; 
+(iii) replicação RNA-polimerase dependente.""" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Pipistrellus_bat_coronavirus_HKU5
+:Pipistrellus_bat_coronavirus_HKU5 rdf:type owl:Class ;
+                                   rdfs:subClassOf :Merbecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Pirital_virus
+:Pirital_virus rdf:type owl:Class ;
+               rdfs:subClassOf :Tacaribe_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Piscihepevirus
+:Piscihepevirus rdf:type owl:Class ;
+                rdfs:subClassOf :Hepeviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Plasmaviridae
+:Plasmaviridae rdf:type owl:Class ;
+               rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Pneumovirinae
+:Pneumovirinae rdf:type owl:Class ;
+               rdfs:subClassOf :Paramyxoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Pneumovirus
+:Pneumovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Pneumovirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Podoviridae
+:Podoviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Caudovirales .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Polydnaviridae
+:Polydnaviridae rdf:type owl:Class ;
+                rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Polyomaviridae
+:Polyomaviridae rdf:type owl:Class ;
+                rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Porcine_epidemic_diarrhea_virus
+:Porcine_epidemic_diarrhea_virus rdf:type owl:Class ;
+                                 rdfs:subClassOf :Pedacovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Potyviridae
+:Potyviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_IV .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Poxviridae
+:Poxviridae rdf:type owl:Class ;
+            rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Prosimiispumavirus
+:Prosimiispumavirus rdf:type owl:Class ;
+                    rdfs:subClassOf :Spumavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Pseudoviridae
+:Pseudoviridae rdf:type owl:Class ;
+               rdfs:subClassOf :Grupo_VI .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Quaranjavirus
+:Quaranjavirus rdf:type owl:Class ;
+               rdfs:subClassOf :Orthomyxoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Reoviridae
+:Reoviridae rdf:type owl:Class ;
+            rdfs:subClassOf :Grupo_III ;
+            rdfs:comment "O nome \"Reoviridae\" deriva de \"vírus respiratório entérico órfão\", em que o termo \"vírus órfão\" alude à ausência de qualquer doença à qual poder o vírus pode estar associado." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Respirovirus
+:Respirovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Paramyxovirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Retroviridae
+:Retroviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_VI ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :eCircular ;
+                                owl:someValuesFrom :Retroviridae
+                              ] .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Rhabdoviridae
+:Rhabdoviridae rdf:type owl:Class ;
+               rdfs:subClassOf :Mononegavirales ;
+               rdfs:comment "Os membros da família Rhabdoviridae (do grego rhábdos, \"bastão\") são vírus que possuem a forma característica de bastão, ou \"bala de revólver\", medindo 70 X 180 ηm. Essa é uma família grande, a qual apresenta um grande espectro de hospedeiros: vertebrados (incluindo peixes), invertebrados (a maioria insetos), amebas e plantas. Os vírus dessa família possuem um genoma de RNA-linear, não-segmentado, de polaridade negativa e envolvido por uma complexa ribonucleoproteína. Os Rhabdovírus do gênero Lyssavirus são responsáveis por causar a doença infecciosa chamada Raiva, que ocorre tanto em seres humanos como em animais doméstico." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Rhinacovirus
+:Rhinacovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Alphacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Rhinolophus_bat_coronavirus_HKU2
+:Rhinolophus_bat_coronavirus_HKU2 rdf:type owl:Class ;
+                                  rdfs:subClassOf :Rhinacovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Rhinolophus_ferrumequinum_alphacoronavirus_HuB-2013
+:Rhinolophus_ferrumequinum_alphacoronavirus_HuB-2013 rdf:type owl:Class ;
+                                                     rdfs:subClassOf :Decacovirus ;
+                                                     rdfs:comment "Alfacoronavirus de Rhinolophus ferrumequinum HuB-2013" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Ronavirus
+:Ronavirus rdf:type owl:Class ;
+           rdfs:subClassOf :Birnaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Roniviridae
+:Roniviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Nidovirales ;
+             rdfs:comment "Arteriviridae é uma família de vírus da subordem Arnidovirineae . Os membros dessa família são conhecidos como arterivírus." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Rousettus_bat_coronavirus_GCCDC1
+:Rousettus_bat_coronavirus_GCCDC1 rdf:type owl:Class ;
+                                  rdfs:subClassOf :Nobecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Rousettus_bat_coronavirus_HKU9
+:Rousettus_bat_coronavirus_HKU9 rdf:type owl:Class ;
+                                rdfs:subClassOf :Nobecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Rubulavirus
+:Rubulavirus rdf:type owl:Class ;
+             rdfs:subClassOf :Paramyxovirinae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Rudiviridae
+:Rudiviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Sabiá_virus
+:Sabiá_virus rdf:type owl:Class ;
+             rdfs:subClassOf :Tacaribe_vírus ;
+             rdfs:comment "Sabiá virus é uma espécie de vírus da família Arenaviridae. Estes vírus possuem material genético de RNA e partículas virais envelopadas. Sabiá virus é o agente etiológico da doença denominada febre hemorrágica brasileira." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Salivirus
+:Salivirus rdf:type owl:Class ;
+           rdfs:subClassOf :Picornaviridae ;
+           rdfs:comment """O gênero Enterovirus constitui um dos nove gêneros da família Picornaviridae, assim como os gêneros: Rhinovirus, Hepatovirus, Parechovirus, Aphthovirus e Cardiovirus, Erbovirus, Kobuvirus, Teschovirus.
+
+Os Enterovírus Humanos (HEV) foram originalmente classificados com base na doença humana (Poliovirus – PV – tipos 1 ao 3), na replicação e patogênese em camundongos recém-nascidos.""" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Sapelovirus
+:Sapelovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Picornaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Sarbecovirus
+:Sarbecovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Betacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Scotophilus_bat_coronavirus_512
+:Scotophilus_bat_coronavirus_512 rdf:type owl:Class ;
+                                 rdfs:subClassOf :Pedacovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Secoviridae
+:Secoviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Picornavirales .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Senecavirus
+:Senecavirus rdf:type owl:Class ;
+             rdfs:subClassOf :Picornaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Setracovirus
+:Setracovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Alphacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Severe_acute_respiratory_syndrome-related_coronavirus
+:Severe_acute_respiratory_syndrome-related_coronavirus rdf:type owl:Class ;
+                                                       rdfs:subClassOf :Sarbecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Severe_acute_respiratory_syndrome-related_coronavirus_2
+:Severe_acute_respiratory_syndrome-related_coronavirus_2 rdf:type owl:Class ;
+                                                         rdfs:subClassOf :Sarbecovirus ;
+                                                         rdfs:comment "O coronavírus da síndrome respiratória aguda grave 2 (SARS-CoV-2) (em Inglês: Severe acute respiratory syndrome coronavirus 2), inicialmente denominado provisoriamente de \"2019-nCoV\" (em Inglês: 2019 novel coronavirus),por vezes denominado \"coronavírus de Wuhan\",ou \"vírus da COVID-19\",é um vírus ARN de cadeia simples positiva (genoma linear).É contagioso entre seres humanos e é a causa da doença COVID-19, da qual existe uma pandemia em curso." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Simarterivirinae
+:Simarterivirinae rdf:type owl:Class ;
+                  rdfs:subClassOf :Arteriviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Simiispumavirus
+:Simiispumavirus rdf:type owl:Class ;
+                 rdfs:subClassOf :Spumavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Siphoviridae
+:Siphoviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Caudovirales .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Spumavirus
+:Spumavirus rdf:type owl:Class ;
+            rdfs:subClassOf :Retroviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tacaribe_virus
+:Tacaribe_virus rdf:type owl:Class ;
+                rdfs:subClassOf :Tacaribe_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tacaribe_vírus
+:Tacaribe_vírus rdf:type owl:Class ;
+                rdfs:subClassOf :Arenaviridae ;
+                rdfs:comment "Novo Mundo" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tamiami_virus
+:Tamiami_virus rdf:type owl:Class ;
+               rdfs:subClassOf :Tacaribe_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tectiviridae
+:Tectiviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_I .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tegacovirus
+:Tegacovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Alphacoronavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Telnavirus
+:Telnavirus rdf:type owl:Class ;
+            rdfs:subClassOf :Birnaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Teschovirus
+:Teschovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Picornaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tetraviridae
+:Tetraviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_IV .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tevenvirinae
+:Tevenvirinae rdf:type owl:Class ;
+              rdfs:subClassOf :Myoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Thogotovirus
+:Thogotovirus rdf:type owl:Class ;
+              rdfs:subClassOf :Orthomyxoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Togaviridae
+:Togaviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_IV ;
+             rdfs:comment "Togaviridae é uma das famílias de vírus RNA de cadeia simples positiva, envolvidos, esféricos ou ovais, icosaédricos, de 40 a 80nm em diâmetro e com cápside simétrica T4.Causam diversas patologias em humanos, outros mamíferos e também em aves." .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tombusviridae
+:Tombusviridae rdf:type owl:Class ;
+               rdfs:subClassOf :Grupo_IV .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tospovirus
+:Tospovirus rdf:type owl:Class ;
+            rdfs:subClassOf :Bunyaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Totiviridae
+:Totiviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_III .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tremovirus
+:Tremovirus rdf:type owl:Class ;
+            rdfs:subClassOf :Picornaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tylonycteris_bat_coronavirus_HKU4
+:Tylonycteris_bat_coronavirus_HKU4 rdf:type owl:Class ;
+                                   rdfs:subClassOf :Merbecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tymovirales
+:Tymovirales rdf:type owl:Class ;
+             rdfs:subClassOf :Grupo_IV ;
+             rdfs:comment "" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tymoviridae
+:Tymoviridae rdf:type owl:Class ;
+             rdfs:subClassOf :Tymovirales .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Variarterivirinae
+:Variarterivirinae rdf:type owl:Class ;
+                   rdfs:subClassOf :Arteriviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Vequintavirinae
+:Vequintavirinae rdf:type owl:Class ;
+                 rdfs:subClassOf :Myoviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Virgaviridae
+:Virgaviridae rdf:type owl:Class ;
+              rdfs:subClassOf :Grupo_IV .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Whispovirus
+:Whispovirus rdf:type owl:Class ;
+             rdfs:subClassOf :Nimaviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#White-eye_coronavirus_HKU16
+:White-eye_coronavirus_HKU16 rdf:type owl:Class ;
+                             rdfs:subClassOf :Buldecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Whitewater_Arroyo_virus
+:Whitewater_Arroyo_virus rdf:type owl:Class ;
+                         rdfs:subClassOf :Tacaribe_vírus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Wigeon_coronavirus_HKU20
+:Wigeon_coronavirus_HKU20 rdf:type owl:Class ;
+                          rdfs:subClassOf :Andecovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Zealarterivirinae
+:Zealarterivirinae rdf:type owl:Class ;
+                   rdfs:subClassOf :Arteriviridae .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Rotavirus;
+<http://www.semanticweb.org/ontologia-viral#Rotavirus;> rdf:type owl:Class ;
+                                                        rdfs:subClassOf :Reoviridae ;
+                                                        rdfs:comment "espécie tipo: Rotavirus A, uma causa comum de diarreia." .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/ontologia-viral#Agaricus_bisporus_virus_4
+:Agaricus_bisporus_virus_4 rdf:type owl:NamedIndividual ,
+                                    :Partitiviridae ;
+                           :Familia "Partitiviridae" ;
+                           :Grupo "Grupo III" ;
+                           :maiorTamanho 40 ;
+                           :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Alfalfa_cryptic_virus_1
+:Alfalfa_cryptic_virus_1 rdf:type owl:NamedIndividual ,
+                                  :Partitiviridae ;
+                         :Familia "Partitiviridae" ;
+                         :Grupo "Grupo III" ;
+                         :maiorTamanho 40 ;
+                         :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bacillus_virus_G
+:Bacillus_virus_G rdf:type owl:NamedIndividual ,
+                           :Myoviridae ;
+                  :menorTamanho 5 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Barbel_circovirus
+:Barbel_circovirus rdf:type owl:NamedIndividual ,
+                            :Circovirus ;
+                   :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bat_associated_circovirus_1
+:Bat_associated_circovirus_1 rdf:type owl:NamedIndividual ,
+                                      :Circovirus ;
+                             :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bat_associated_circovirus_2
+:Bat_associated_circovirus_2 rdf:type owl:NamedIndividual ,
+                                      :Circovirus ;
+                             :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bat_associated_circovirus_3
+:Bat_associated_circovirus_3 rdf:type owl:NamedIndividual ,
+                                      :Circovirus ;
+                             :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bat_associated_circovirus_4
+:Bat_associated_circovirus_4 rdf:type owl:NamedIndividual ,
+                                      :Circovirus ;
+                             :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bat_associated_circovirus_5
+:Bat_associated_circovirus_5 rdf:type owl:NamedIndividual ,
+                                      :Circovirus ;
+                             :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bat_associated_circovirus_6
+:Bat_associated_circovirus_6 rdf:type owl:NamedIndividual ,
+                                      :Circovirus ;
+                             :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bat_associated_circovirus_7
+:Bat_associated_circovirus_7 rdf:type owl:NamedIndividual ,
+                                      :Circovirus ;
+                             :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Beak_and_feather_disease_virus
+:Beak_and_feather_disease_virus rdf:type owl:NamedIndividual ,
+                                         :Circovirus ;
+                                :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Beihai_picobirnavirus
+:Beihai_picobirnavirus rdf:type owl:NamedIndividual ,
+                                :Picobirnavirus ;
+                       :Familia "Birnaviridae" ;
+                       :Grupo "Grupo III" ;
+                       :SubFamilia "Picobirnavirus" ;
+                       :maiorTamanho 40 ;
+                       :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Blue_gill_hepatitis_B_virus
+:Blue_gill_hepatitis_B_virus rdf:type owl:NamedIndividual ,
+                                      :Metahepadnavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bornean_orangutan_simian_foamy_virus
+:Bornean_orangutan_simian_foamy_virus rdf:type owl:NamedIndividual ,
+                                               :Simiispumavirus ;
+                                      :Familia "Retroviridae" ;
+                                      :Generos "Simiispumavirus" ;
+                                      :Grupo "Grupo IV" ;
+                                      :SubFamilia "Spumavirus" ;
+                                      :maiorTamanho 11 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Bovine_foamy_virus
+:Bovine_foamy_virus rdf:type owl:NamedIndividual ,
+                             :Bovispumavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Brown_greater_galago_prosimian_foamy_virus
+:Brown_greater_galago_prosimian_foamy_virus rdf:type owl:NamedIndividual ,
+                                                     :Prosimiispumavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Canary_circovirus
+:Canary_circovirus rdf:type owl:NamedIndividual ,
+                            :Circovirus ;
+                   :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Canine_circovirus
+:Canine_circovirus rdf:type owl:NamedIndividual ,
+                            :Circovirus ;
+                   :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Capuchin_monkey_hepatitis_B_virus
+:Capuchin_monkey_hepatitis_B_virus rdf:type owl:NamedIndividual ,
+                                            :Orthohepadnavirus ;
+                                   :Familia "Hepadnaviridae" ;
+                                   :Grupo "Grupo VII" ;
+                                   :SubFamilia "Orthohepadnavirus" ;
+                                   :maiorTamanho 8 ;
+                                   :menorTamanho 3 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Carnation_cryptic_virus_1
+:Carnation_cryptic_virus_1 rdf:type owl:NamedIndividual ,
+                                    :Partitiviridae ;
+                           :Familia "Partitiviridae" ;
+                           :Grupo "Grupo III" ;
+                           :maiorTamanho 40 ;
+                           :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Carrot_temperate_virus_1
+:Carrot_temperate_virus_1 rdf:type owl:NamedIndividual ,
+                                   :Partitiviridae ;
+                          :Familia "Partitiviridae" ;
+                          :Grupo "Grupo III" ;
+                          :maiorTamanho 40 ;
+                          :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Carrot_temperate_virus_2
+:Carrot_temperate_virus_2 rdf:type owl:NamedIndividual ,
+                                   :Partitiviridae ;
+                          :Familia "Partitiviridae" ;
+                          :Grupo "Grupo III" ;
+                          :maiorTamanho 40 ;
+                          :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Carrot_temperate_virus_3
+:Carrot_temperate_virus_3 rdf:type owl:NamedIndividual ,
+                                   :Partitiviridae ;
+                          :Familia "Partitiviridae" ;
+                          :Grupo "Grupo III" ;
+                          :maiorTamanho 40 ;
+                          :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Carrot_temperate_virus_4
+:Carrot_temperate_virus_4 rdf:type owl:NamedIndividual ,
+                                   :Partitiviridae ;
+                          :Familia "Partitiviridae" ;
+                          :Grupo "Grupo III" ;
+                          :maiorTamanho 40 ;
+                          :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Central_chimpanzee_simian_foamy_virus
+:Central_chimpanzee_simian_foamy_virus rdf:type owl:NamedIndividual ,
+                                                :Simiispumavirus ;
+                                       :Familia "Retroviridae" ;
+                                       :Generos "Simiispumavirus" ;
+                                       :Grupo "Grupo IV" ;
+                                       :SubFamilia "Spumavirus" ;
+                                       :maiorTamanho 11 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Chimpanzee_associated_circovirus_1
+:Chimpanzee_associated_circovirus_1 rdf:type owl:NamedIndividual ,
+                                             :Circovirus ;
+                                    :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Chinese_shrew_hepatitis_B_virus
+:Chinese_shrew_hepatitis_B_virus rdf:type owl:NamedIndividual ,
+                                          :Orthohepadnavirus ;
+                                 :Familia "Hepadnaviridae" ;
+                                 :Grupo "Grupo VII" ;
+                                 :SubFamilia "Orthohepadnavirus" ;
+                                 :maiorTamanho 8 ;
+                                 :menorTamanho 3 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Civet_circovirus
+:Civet_circovirus rdf:type owl:NamedIndividual ,
+                           :Circovirus ;
+                  :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Dhori_thogotovirus
+:Dhori_thogotovirus rdf:type owl:NamedIndividual ,
+                             :Thogotovirus ;
+                    :Familia "Orthomyxoviridae" ;
+                    :Grupo "Grupo V" ;
+                    :maiorTamanho 19 ;
+                    :menorTamanho 9 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Domestic_cat_hepatitis_B_virus
+:Domestic_cat_hepatitis_B_virus rdf:type owl:NamedIndividual ,
+                                         :Orthohepadnavirus ;
+                                :Familia "Hepadnaviridae" ;
+                                :Grupo "Grupo VII" ;
+                                :SubFamilia "Orthohepadnavirus" ;
+                                :maiorTamanho 8 ;
+                                :menorTamanho 3 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Duck_circovirus
+:Duck_circovirus rdf:type owl:NamedIndividual ,
+                          :Circovirus ;
+                 :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Duck_hepatitis_B_virus
+:Duck_hepatitis_B_virus rdf:type owl:NamedIndividual ,
+                                 :Avihepadnavirus ;
+                        :Familia "Hepadnaviridae" ;
+                        :Grupo "Grupo VII" ;
+                        :SubFamilia "Avihepadnavirus" ;
+                        :maiorTamanho 8 ;
+                        :menorTamanho 3 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Eastern_chimpanzee_simian_foamy_virus
+:Eastern_chimpanzee_simian_foamy_virus rdf:type owl:NamedIndividual ,
+                                                :Simiispumavirus ;
+                                       :Familia "Retroviridae" ;
+                                       :Generos "Simiispumavirus" ;
+                                       :Grupo "Grupo IV" ;
+                                       :SubFamilia "Spumavirus" ;
+                                       :maiorTamanho 11 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Enterovirus_A
+:Enterovirus_A rdf:type owl:NamedIndividual ,
+                        :Enterovirus ;
+               :Familia "Picornavirales" ;
+               :Generos "Enterovirus" ;
+               :Grupo "Grupo IV" ;
+               :SubFamilia "Picornaviridae" ;
+               :maiorTamanho 31 ;
+               :menorTamanho 2 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Enterovirus_B
+:Enterovirus_B rdf:type owl:NamedIndividual ,
+                        :Enterovirus ;
+               :Familia "Picornavirales" ;
+               :Generos "Enterovirus" ;
+               :Grupo "Grupo IV" ;
+               :SubFamilia "Picornaviridae" ;
+               :maiorTamanho 31 ;
+               :menorTamanho 2 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Enterovirus_C
+:Enterovirus_C rdf:type owl:NamedIndividual ,
+                        :Enterovirus ;
+               :Familia "Picornavirales" ;
+               :Generos "Enterovirus" ;
+               :Grupo "Grupo IV" ;
+               :SubFamilia "Picornaviridae" ;
+               :maiorTamanho 31 ;
+               :menorTamanho 2 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Enterovirus_D
+:Enterovirus_D rdf:type owl:NamedIndividual ,
+                        :Enterovirus ;
+               :Familia "Picornavirales" ;
+               :Generos "Enterovirus" ;
+               :Grupo "Grupo IV" ;
+               :SubFamilia "Picornaviridae" ;
+               :menorTamanho 2 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Enterovirus_E
+:Enterovirus_E rdf:type owl:NamedIndividual ,
+                        :Enterovirus ;
+               :Familia "Picornavirales" ;
+               :Grupo "Grupo IV" ;
+               :SubFamilia "Picornaviridae" ;
+               :menorTamanho 2 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Enterovirus_F
+:Enterovirus_F rdf:type owl:NamedIndividual ,
+                        :Enterovirus ;
+               :Familia "Picornavirales" ;
+               :Generos "Enterovirus" ;
+               :Grupo "Grupo IV" ;
+               :SubFamilia "Picornaviridae" ;
+               :maiorTamanho 31 ;
+               :menorTamanho 2 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Enterovirus_G
+:Enterovirus_G rdf:type owl:NamedIndividual ,
+                        :Enterovirus ;
+               :Familia "Picornavirales" ;
+               :Generos "Enterovirus" ;
+               :Grupo "Grupo IV" ;
+               :SubFamilia "Picornaviridae" ;
+               :maiorTamanho 31 ;
+               :menorTamanho 2 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Enterovirus_H
+:Enterovirus_H rdf:type owl:NamedIndividual ,
+                        :Enterovirus ;
+               :Familia "Picornavirales" ;
+               :Generos "Enterovirus" ;
+               :Grupo "Grupo IV" ;
+               :SubFamilia "Picornaviridae" ;
+               :maiorTamanho 31 ;
+               :menorTamanho 2 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Enterovirus_I
+:Enterovirus_I rdf:type owl:NamedIndividual ,
+                        :Enterovirus ;
+               :Familia "Picornavirales" ;
+               :Generos "Enterovirus" ;
+               :Grupo "Grupo IV" ;
+               :SubFamilia "Picornaviridae" ;
+               :maiorTamanho 31 ;
+               :menorTamanho 2 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Enterovirus_J
+:Enterovirus_J rdf:type owl:NamedIndividual ,
+                        :Enterovirus ;
+               :Familia "Picornavirales" ;
+               :Generos "Enterovirus" ;
+               :Grupo "Grupo IV" ;
+               :SubFamilia "Picornaviridae" ;
+               :maiorTamanho 31 ;
+               :menorTamanho 2 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Enterovirus_K
+:Enterovirus_K rdf:type owl:NamedIndividual ,
+                        :Enterovirus ;
+               :Familia "Picornavirales" ;
+               :Generos "Enterovirus" ;
+               :Grupo "Grupo IV" ;
+               :SubFamilia "Picornaviridae" ;
+               :maiorTamanho 31 ;
+               :menorTamanho 2 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Enterovirus_L
+:Enterovirus_L rdf:type owl:NamedIndividual ,
+                        :Enterovirus ;
+               :Familia "Picornavirales" ;
+               :Generos "Enterovirus" ;
+               :Grupo "Grupo IV" ;
+               :SubFamilia "Picornaviridae" ;
+               :maiorTamanho 31 ;
+               :menorTamanho 2 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Equid_gammaherpesvirus_7
+:Equid_gammaherpesvirus_7 rdf:type owl:NamedIndividual ,
+                                   :Gammaherpesvirinae ;
+                          :Familia "Herpesviridae"^^xsd:string ;
+                          :Ordem "Herpesvirales"^^xsd:string ;
+                          :SubFamilia "Gammaherpesvirinae"^^xsd:string ;
+                          :maiorTamanho 1180 ;
+                          :menorTamanho 5 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Equine_foamy_virus
+:Equine_foamy_virus rdf:type owl:NamedIndividual ,
+                             :Equispumavirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Equine_picobirnavirus
+:Equine_picobirnavirus rdf:type owl:NamedIndividual ,
+                                :Picobirnavirus ;
+                       :Familia "Birnaviridae" ;
+                       :Grupo "Grupo III" ;
+                       :SubFamilia "Picobirnavirus" ;
+                       :maiorTamanho 40 ;
+                       :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#European_catfish_circovirus
+:European_catfish_circovirus rdf:type owl:NamedIndividual ,
+                                      :Circovirus ;
+                             :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Finch_circovirus
+:Finch_circovirus rdf:type owl:NamedIndividual ,
+                           :Circovirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Gaeumannomyces_graminis_virus_0196A
+:Gaeumannomyces_graminis_virus_0196A rdf:type owl:NamedIndividual ,
+                                              :Partitiviridae ;
+                                     :Familia "Partitiviridae" ;
+                                     :Grupo "Grupo III" ;
+                                     :maiorTamanho 40 ;
+                                     :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Gaeumannomyces_graminis_virus_T1A
+:Gaeumannomyces_graminis_virus_T1A rdf:type owl:NamedIndividual ,
+                                            :Partitiviridae ;
+                                   :Familia "Partitiviridae" ;
+                                   :Grupo "Grupo III" ;
+                                   :maiorTamanho 40 ;
+                                   :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Goose_circovirus
+:Goose_circovirus rdf:type owl:NamedIndividual ,
+                           :Circovirus ;
+                  :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Grivet_simian_foamy_virus
+:Grivet_simian_foamy_virus rdf:type owl:NamedIndividual ,
+                                    :Simiispumavirus ;
+                           :Generos "Simiispumavirus" ;
+                           :Grupo "Grupo IV" ;
+                           :SubFamilia "Spumavirus" ;
+                           :maiorTamanho 11 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Ground_squirrel_hepatitis_virus
+:Ground_squirrel_hepatitis_virus rdf:type owl:NamedIndividual ,
+                                          :Orthohepadnavirus ;
+                                 :Familia "Hepadnaviridae" ;
+                                 :Grupo "Grupo VII" ;
+                                 :SubFamilia "Orthohepadnavirus" ;
+                                 :maiorTamanho 8 ;
+                                 :menorTamanho 3 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Guenon_simian_foamy_virus
+:Guenon_simian_foamy_virus rdf:type owl:NamedIndividual ,
+                                    :Simiispumavirus ;
+                           :Familia "Retroviridae" ;
+                           :Generos "Simiispumavirus" ;
+                           :Grupo "Grupo IV" ;
+                           :SubFamilia "Spumavirus" ;
+                           :maiorTamanho 5 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Hepatitis_B_virus
+:Hepatitis_B_virus rdf:type owl:NamedIndividual ,
+                            :Orthohepadnavirus ;
+                   :Familia "Hepadnaviridae" ;
+                   :Grupo "Grupo VII" ;
+                   :SubFamilia "Orthohepadnavirus" ;
+                   :maiorTamanho 8 ;
+                   :menorTamanho 3 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Heron_hepatitis_B_virus
+:Heron_hepatitis_B_virus rdf:type owl:NamedIndividual ,
+                                  :Avihepadnavirus ;
+                         :Familia "Hepadnaviridae" ;
+                         :Grupo "Grupo VII" ;
+                         :SubFamilia "Avihepadnavirus" ;
+                         :maiorTamanho 8 ;
+                         :menorTamanho 3 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Hop_trefoil_cryptic_virus_1
+:Hop_trefoil_cryptic_virus_1 rdf:type owl:NamedIndividual ,
+                                      :Partitiviridae ;
+                             :Familia "Partitiviridae" ;
+                             :Grupo "Grupo III" ;
+                             :maiorTamanho 40 ;
+                             :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Hop_trefoil_cryptic_virus_3
+:Hop_trefoil_cryptic_virus_3 rdf:type owl:NamedIndividual ,
+                                      :Partitiviridae ;
+                             :Familia "Partitiviridae" ;
+                             :Grupo "Grupo III" ;
+                             :maiorTamanho 40 ;
+                             :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Human_picobirnavirus
+:Human_picobirnavirus rdf:type owl:NamedIndividual ,
+                               :Picobirnavirus ;
+                      :Familia "Birnaviridae" ;
+                      :Grupo "Grupo III" ;
+                      :SubFamilia "Picobirnavirus" ;
+                      :maiorTamanho 40 ;
+                      :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Iguanid_herpesvirus_2
+:Iguanid_herpesvirus_2 rdf:type owl:NamedIndividual ,
+                                :Herpesviridae ;
+                       :Familia "Herpesviridae"^^xsd:string ;
+                       :Ordem "Herpesvirales"^^xsd:string .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Infectious_bursal_disease_virus
+:Infectious_bursal_disease_virus rdf:type owl:NamedIndividual ,
+                                          :Avibirnavirus ;
+                                 :Familia "Birnaviridae" ;
+                                 :Grupo "Grupo III" ;
+                                 :SubFamilia "Avibirnavirus" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Infectious_pancreatic_necrosis_virus
+:Infectious_pancreatic_necrosis_virus rdf:type owl:NamedIndividual ,
+                                               :Aquabirnavirus ;
+                                      :Familia "Birnaviridae" ;
+                                      :Grupo "Grupo III" ;
+                                      :SubFamilia "Aquabirnavirus" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Influenza_A_virus
+:Influenza_A_virus rdf:type owl:NamedIndividual ,
+                            :Alphainfluenzavirus ;
+                   :Familia "Orthomyxoviridae" ;
+                   :Grupo "Grupo V" ;
+                   :maiorTamanho 19 ;
+                   :menorTamanho 9 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Influenza_B_virus
+:Influenza_B_virus rdf:type owl:NamedIndividual ,
+                            :Betainfluenzavirus ;
+                   :Grupo "Grupo V" ;
+                   :maiorTamanho 19 ;
+                   :menorTamanho 9 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Influenza_C_virus
+:Influenza_C_virus rdf:type owl:NamedIndividual ,
+                            :Gammainfluenzavirus ;
+                   :Familia "Orthomyxoviridae" ;
+                   :Grupo "Grupo V" ;
+                   :maiorTamanho 19 ;
+                   :menorTamanho 9 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Influenza_D_virus
+:Influenza_D_virus rdf:type owl:NamedIndividual ,
+                            :Deltainfluenzavirus ;
+                   :Familia "Orthomyxoviridae" ;
+                   :Grupo "Grupo V" ;
+                   :maiorTamanho 19 ;
+                   :menorTamanho 9 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Japanese_macaque_simian_foamy_virus
+:Japanese_macaque_simian_foamy_virus rdf:type owl:NamedIndividual ,
+                                              :Simiispumavirus ;
+                                     :Familia "Retroviridae" ;
+                                     :Generos "Simiispumavirus" ;
+                                     :Grupo "Grupo IV" ;
+                                     :SubFamilia "Spumavirus" ;
+                                     :maiorTamanho 11 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Johnston_Atoll_quaranjavirus
+:Johnston_Atoll_quaranjavirus rdf:type owl:NamedIndividual ,
+                                       :Quaranjavirus ;
+                              :Familia "Orthomyxoviridae" ;
+                              :Grupo "Grupo V" ;
+                              :maiorTamanho 19 ;
+                              :menorTamanho 9 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Long-fingered_bat_hepatitis_B_virus
+:Long-fingered_bat_hepatitis_B_virus rdf:type owl:NamedIndividual ,
+                                              :Orthohepadnavirus ;
+                                     :Familia "Hepadnaviridae" ;
+                                     :Grupo "Grupo VII" ;
+                                     :SubFamilia "Orthohepadnavirus" ;
+                                     :maiorTamanho 8 ;
+                                     :menorTamanho 3 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Orthohepevirus_A
+:Orthohepevirus_A rdf:type owl:NamedIndividual ,
+                           :Orthohepevirus ;
+                  :Familia "Hepeviridae" ;
+                  :Grupo "Grupo IV" ;
+                  :SubFamilia "Orthohepevirus" ;
+                  :menorTamanho 2 ,
+                                31 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Orthohepevirus_B
+:Orthohepevirus_B rdf:type owl:NamedIndividual ,
+                           :Orthohepevirus ;
+                  :Familia "Hepeviridae" ;
+                  :Grupo "Grupo IV" ;
+                  :SubFamilia "Orthohepevirus" ;
+                  :menorTamanho 2 ,
+                                31 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Orthohepevirus_C
+:Orthohepevirus_C rdf:type owl:NamedIndividual ,
+                           :Orthohepevirus ;
+                  :Familia "Hepeviridae" ;
+                  :Grupo "Grupo IV" ;
+                  :SubFamilia "Orthohepevirus" ;
+                  :menorTamanho 2 ,
+                                31 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Orthohepevirus_D
+:Orthohepevirus_D rdf:type owl:NamedIndividual ,
+                           :Orthohepevirus ;
+                  :Familia "Hepeviridae" ;
+                  :Grupo "Grupo IV" ;
+                  :SubFamilia "Orthohepevirus" ;
+                  :menorTamanho 2 ,
+                                31 ;
+                  rdfs:comment "Os Enterovírus Humanos (HEV) foram originalmente classificados com base na doença humana (Poliovirus – PV – tipos 1 ao 3), na replicação e patogênese em camundongos recém-nascidos" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Parrot_hepatitis_B_virus
+:Parrot_hepatitis_B_virus rdf:type owl:NamedIndividual ,
+                                   :Avihepadnavirus ;
+                          :Familia "Hepadnaviridae" ;
+                          :Grupo "Grupo VII" ;
+                          :SubFamilia "Avihepadnavirus" ;
+                          :maiorTamanho 8 ;
+                          :menorTamanho 3 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Phocid_gammaherpesvirus_2
+:Phocid_gammaherpesvirus_2 rdf:type owl:NamedIndividual ,
+                                    :Gammaherpesvirinae ;
+                           :Familia "Herpesviridae"^^xsd:string ;
+                           :Ordem "Herpesvirales"^^xsd:string ;
+                           :SubFamilia "Gammaherpesvirinae"^^xsd:string ;
+                           :maiorTamanho 1180 ;
+                           :menorTamanho 5 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Pomona_bat_hepatitis_B_virus
+:Pomona_bat_hepatitis_B_virus rdf:type owl:NamedIndividual ,
+                                       :Orthohepadnavirus ;
+                              :Familia "Hepadnaviridae" ;
+                              :Grupo "Grupo VII" ;
+                              :SubFamilia "Orthohepadnavirus" ;
+                              :maiorTamanho 8 ;
+                              :menorTamanho 3 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Radish_yellow_edge_virus
+:Radish_yellow_edge_virus rdf:type owl:NamedIndividual ,
+                                   :Partitiviridae ;
+                          :Familia "Partitiviridae" ;
+                          :Grupo "Grupo III" ;
+                          :maiorTamanho 40 ;
+                          :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Raven_circovirus
+:Raven_circovirus rdf:type owl:NamedIndividual ,
+                           :Circovirus ;
+                  :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Rhesus_macaque_simian_foamy_virus
+:Rhesus_macaque_simian_foamy_virus rdf:type owl:NamedIndividual ,
+                                            :Simiispumavirus ;
+                                   :Familia "Retroviridae" ;
+                                   :Generos "Simiispumavirus" ;
+                                   :Grupo "Grupo IV" ;
+                                   :SubFamilia "Spumavirus" ;
+                                   :maiorTamanho 11 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Rhinovirus_A
+:Rhinovirus_A rdf:type owl:NamedIndividual ,
+                       :Enterovirus ;
+              :Familia "Picornavirales" ;
+              :Generos "Enterovirus" ;
+              :Grupo "Grupo IV" ;
+              :SubFamilia "Picornaviridae" ;
+              :maiorTamanho 31 ;
+              :menorTamanho 2 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Rhinovirus_B
+:Rhinovirus_B rdf:type owl:NamedIndividual ,
+                       :Enterovirus ;
+              :Familia "Picornavirales" ;
+              :Generos "Enterovirus" ;
+              :Grupo "Grupo IV" ;
+              :SubFamilia "Picornaviridae" ;
+              :maiorTamanho 31 ;
+              :menorTamanho 2 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Rhinovirus_C
+:Rhinovirus_C rdf:type owl:NamedIndividual ,
+                       :Enterovirus ;
+              :Familia "Picornavirales" ;
+              :Generos "Enterovirus" ;
+              :Grupo "Grupo IV" ;
+              :SubFamilia "Picornaviridae" ;
+              :maiorTamanho 31 ;
+              :menorTamanho 2 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Roundleaf_bat_hepatitis_B_virus
+:Roundleaf_bat_hepatitis_B_virus rdf:type owl:NamedIndividual ,
+                                          :Orthohepadnavirus ;
+                                 :Familia "Hepadnaviridae" ;
+                                 :Grupo "Grupo VII" ;
+                                 :SubFamilia "Orthohepadnavirus" ;
+                                 :maiorTamanho 8 ;
+                                 :menorTamanho 3 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Ryegrass_cryptic_virus
+:Ryegrass_cryptic_virus rdf:type owl:NamedIndividual ,
+                                 :Partitiviridae ;
+                        :Familia "Partitiviridae" ;
+                        :Grupo "Grupo III" ;
+                        :maiorTamanho 40 ;
+                        :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Saguinine_gammaherpesvirus_1
+:Saguinine_gammaherpesvirus_1 rdf:type owl:NamedIndividual ,
+                                       :Gammaherpesvirinae ;
+                              :Familia "Herpesviridae"^^xsd:string ;
+                              :Ordem "Herpesvirales"^^xsd:string ;
+                              :SubFamilia "Gammaherpesvirinae"^^xsd:string ;
+                              :maiorTamanho 1180 ;
+                              :menorTamanho 5 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Salmon_isavirus
+:Salmon_isavirus rdf:type owl:NamedIndividual ,
+                          :Isavirus ;
+                 :Familia "Orthomyxoviridae" ;
+                 :Grupo "Grupo V" ;
+                 :maiorTamanho 19 ;
+                 :menorTamanho 9 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Spider_monkey_simian_foamy_virus
+:Spider_monkey_simian_foamy_virus rdf:type owl:NamedIndividual ,
+                                           :Simiispumavirus ;
+                                  :Familia "Retroviridae" ;
+                                  :Generos "Simiispumavirus" ;
+                                  :Grupo "Grupo IV" ;
+                                  :SubFamilia "Spumavirus" ;
+                                  :menorTamanho 11 ,
+                                                5 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Spinach_temperate_virus
+:Spinach_temperate_virus rdf:type owl:NamedIndividual ,
+                                  :Partitiviridae ;
+                         :Familia "Partitiviridae" ;
+                         :Grupo "Grupo III" ;
+                         :maiorTamanho 40 ;
+                         :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Squirrel_monkey_simian_foamy_virus
+:Squirrel_monkey_simian_foamy_virus rdf:type owl:NamedIndividual ,
+                                             :Simiispumavirus ;
+                                    :Familia "Retroviridae" ;
+                                    :Generos "Simiispumavirus" ;
+                                    :Grupo "Grupo IV" ;
+                                    :SubFamilia "Spumavirus" ;
+                                    :maiorTamanho 11 ;
+                                    :menorTamanho 5 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tai_Forest_hepatitis_B_virus
+:Tai_Forest_hepatitis_B_virus rdf:type owl:NamedIndividual ,
+                                       :Orthohepadnavirus ;
+                              :Familia "Hepadnaviridae" ;
+                              :Grupo "Grupo VII" ;
+                              :SubFamilia "Orthohepadnavirus" ;
+                              :maiorTamanho 8 ;
+                              :menorTamanho 3 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Taiwanese_macaque_simian_foamy_virus
+:Taiwanese_macaque_simian_foamy_virus rdf:type owl:NamedIndividual ,
+                                               :Simiispumavirus ;
+                                      :Familia "Retroviridae" ;
+                                      :Generos "Simiispumavirus" ;
+                                      :Grupo "Grupo IV" ;
+                                      :SubFamilia "Spumavirus" ;
+                                      :maiorTamanho 11 ;
+                                      :menorTamanho 5 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tellina_virus
+:Tellina_virus rdf:type owl:NamedIndividual ,
+                        :Aquabirnavirus ;
+               :Familia "Birnaviridae" ;
+               :Grupo "Grupo III" ;
+               :SubFamilia "Aquabirnavirus" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tent-making_bat_hepatitis_B_virus
+:Tent-making_bat_hepatitis_B_virus rdf:type owl:NamedIndividual ,
+                                            :Orthohepadnavirus ;
+                                   :Familia "Hepadnaviridae" ;
+                                   :Grupo "Grupo VII" ;
+                                   :SubFamilia "Orthohepadnavirus" ;
+                                   :maiorTamanho 8 ;
+                                   :menorTamanho 3 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Thogoto_thogotovirus
+:Thogoto_thogotovirus rdf:type owl:NamedIndividual ,
+                               :Thogotovirus ;
+                      :Familia "Orthomyxoviridae" ;
+                      :Grupo "Grupo V" ;
+                      :SubFamilia "Thogotovirus" ;
+                      :maiorTamanho 19 ;
+                      :menorTamanho 9 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Tibetan_frog_hepatitis_B_virus
+:Tibetan_frog_hepatitis_B_virus rdf:type owl:NamedIndividual ,
+                                         :Herpetohepadnavirus ;
+                                :Familia "Hepadnaviridae" ;
+                                :Grupo "Grupo IV" ;
+                                :SubFamilia "Herpetohepadnavirus" ;
+                                :maiorTamanho 3 ;
+                                :menorTamanho 8 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_mini_virus_1
+:Torque_teno_mini_virus_1 rdf:type owl:NamedIndividual ,
+                                   :Betatorquevirus ;
+                          :Familia "Anelloviridae" ;
+                          :SubFamilia "Betatorquevirus" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_mini_virus_11
+:Torque_teno_mini_virus_11 rdf:type owl:NamedIndividual ,
+                                    :Betatorquevirus ;
+                           :Familia "Anelloviridae" ;
+                           :SubFamilia "Betatorquevirus" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_mini_virus_12
+:Torque_teno_mini_virus_12 rdf:type owl:NamedIndividual ,
+                                    :Betatorquevirus ;
+                           :Familia "Anelloviridae" ;
+                           :SubFamilia "Betatorquevirus" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_mini_virus_2
+:Torque_teno_mini_virus_2 rdf:type owl:NamedIndividual ,
+                                   :Betatorquevirus ;
+                          :Familia "Anelloviridae" ;
+                          :Grupo "Grupo II" ;
+                          :SubFamilia "Betatorquevirus" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_mini_virus_3
+:Torque_teno_mini_virus_3 rdf:type owl:NamedIndividual ,
+                                   :Betatorquevirus ;
+                          :Familia "Anelloviridae" ;
+                          :Grupo "Grupo II" ;
+                          :SubFamilia "Betatorquevirus" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_mini_virus_4
+:Torque_teno_mini_virus_4 rdf:type owl:NamedIndividual ,
+                                   :Betatorquevirus ;
+                          :Familia "Anelloviridae" ;
+                          :Grupo "Grupo II" ;
+                          :SubFamilia "Betatorquevirus" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_mini_virus_5
+:Torque_teno_mini_virus_5 rdf:type owl:NamedIndividual ,
+                                   :Betatorquevirus ;
+                          :Familia "Anelloviridae" ;
+                          :Grupo "Grupo II" ;
+                          :SubFamilia "Betatorquevirus" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_mini_virus_6
+:Torque_teno_mini_virus_6 rdf:type owl:NamedIndividual ,
+                                   :Betatorquevirus ;
+                          :Grupo "Grupo II" ;
+                          :SubFamilia "Anelloviridae" ,
+                                      "Betatorquevirus" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_mini_virus_7
+:Torque_teno_mini_virus_7 rdf:type owl:NamedIndividual ,
+                                   :Betatorquevirus ;
+                          :Familia "Anelloviridae" ;
+                          :Grupo "Grupo II" ;
+                          :SubFamilia "Betatorquevirus" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_mini_virus_8
+:Torque_teno_mini_virus_8 rdf:type owl:NamedIndividual ,
+                                   :Betatorquevirus ;
+                          :Familia "Anelloviridae" ;
+                          :Grupo "Grupo II" ;
+                          :SubFamilia "Betatorquevirus" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_mini_virus_9
+:Torque_teno_mini_virus_9 rdf:type owl:NamedIndividual ,
+                                   :Betatorquevirus ;
+                          :Familia "Anelloviridae" ;
+                          :Grupo "Grupo II" ;
+                          :SubFamilia "Betatorquevirus" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_1
+:Torque_teno_virus_1 rdf:type owl:NamedIndividual ,
+                              :Alphatorquevirus ;
+                     :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_10
+:Torque_teno_virus_10 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus ;
+                      :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_11
+:Torque_teno_virus_11 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus ;
+                      :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_12
+:Torque_teno_virus_12 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus ;
+                      :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_13
+:Torque_teno_virus_13 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus ;
+                      :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_14
+:Torque_teno_virus_14 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus ;
+                      :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_15
+:Torque_teno_virus_15 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus ;
+                      :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_16
+:Torque_teno_virus_16 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus ;
+                      :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_17
+:Torque_teno_virus_17 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus ;
+                      :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_18
+:Torque_teno_virus_18 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus ;
+                      :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_19
+:Torque_teno_virus_19 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_2
+:Torque_teno_virus_2 rdf:type owl:NamedIndividual ,
+                              :Alphatorquevirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_20
+:Torque_teno_virus_20 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_21
+:Torque_teno_virus_21 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_22
+:Torque_teno_virus_22 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_23
+:Torque_teno_virus_23 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_24
+:Torque_teno_virus_24 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_25
+:Torque_teno_virus_25 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_27
+:Torque_teno_virus_27 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_28
+:Torque_teno_virus_28 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus ;
+                      :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_29
+:Torque_teno_virus_29 rdf:type owl:NamedIndividual ,
+                               :Alphatorquevirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_3
+:Torque_teno_virus_3 rdf:type owl:NamedIndividual ,
+                              :Alphatorquevirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_4
+:Torque_teno_virus_4 rdf:type owl:NamedIndividual ,
+                              :Alphatorquevirus ;
+                     :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_5
+:Torque_teno_virus_5 rdf:type owl:NamedIndividual ,
+                              :Alphatorquevirus ;
+                     :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_6
+:Torque_teno_virus_6 rdf:type owl:NamedIndividual ,
+                              :Alphatorquevirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_7
+:Torque_teno_virus_7 rdf:type owl:NamedIndividual ,
+                              :Alphatorquevirus ;
+                     :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_8
+:Torque_teno_virus_8 rdf:type owl:NamedIndividual ,
+                              :Alphatorquevirus .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Torque_teno_virus_9
+:Torque_teno_virus_9 rdf:type owl:NamedIndividual ,
+                              :Alphatorquevirus ;
+                     :Grupo "Grupo II" .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Western_lowland_gorilla_simian_foamy_virus
+:Western_lowland_gorilla_simian_foamy_virus rdf:type owl:NamedIndividual ,
+                                                     :Simiispumavirus ;
+                                            :Familia "Retroviridae" ;
+                                            :Generos "Simiispumavirus" ;
+                                            :Grupo "Grupo IV" ;
+                                            :SubFamilia "Spumavirus" ;
+                                            :maiorTamanho 11 ;
+                                            :menorTamanho 5 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#White-tufted-ear_marmoset_simian_foamy_virus
+:White-tufted-ear_marmoset_simian_foamy_virus rdf:type owl:NamedIndividual ,
+                                                       :Simiispumavirus ;
+                                              :Familia "Retroviridae" ;
+                                              :Generos "Simiispumavirus" ;
+                                              :Grupo "Grupo IV" ;
+                                              :maiorTamanho 11 ;
+                                              :menorTamanho 5 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#White_clover_cryptic_virus_3
+:White_clover_cryptic_virus_3 rdf:type owl:NamedIndividual ,
+                                       :Partitiviridae ;
+                              :Familia "Partitiviridae" ;
+                              :Grupo "Grupo III" ;
+                              :maiorTamanho 40 ;
+                              :menorTamanho 4 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#White_spot_syndrome_virus
+:White_spot_syndrome_virus rdf:type owl:NamedIndividual ,
+                                    :Whispovirus ;
+                           :Familia "Nimaviridae" ;
+                           :SubFamilia "Whispovirus" ;
+                           :maiorTamanho 1180 ;
+                           :menorTamanho 5 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Woodchuck_hepatitis_virus
+:Woodchuck_hepatitis_virus rdf:type owl:NamedIndividual ,
+                                    :Orthohepadnavirus ;
+                           :Familia "Hepadnaviridae" ;
+                           :Grupo "Grupo VII" ;
+                           :SubFamilia "Orthohepadnavirus" ;
+                           :maiorTamanho 8 ;
+                           :menorTamanho 3 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Woolly_monkey_hepatitis_B_virus
+:Woolly_monkey_hepatitis_B_virus rdf:type owl:NamedIndividual ,
+                                          :Orthohepadnavirus ;
+                                 :Familia "Hepadnaviridae" ;
+                                 :Grupo "Grupo VII" ;
+                                 :SubFamilia "Orthohepadnavirus" ;
+                                 :maiorTamanho 8 ;
+                                 :menorTamanho 3 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Yellow-breasted_capuchin_simian_foamy_virus
+:Yellow-breasted_capuchin_simian_foamy_virus rdf:type owl:NamedIndividual ,
+                                                      :Simiispumavirus ;
+                                             :Familia "Retroviridae" ;
+                                             :Generos "Simiispumavirus" ;
+                                             :Grupo "Grupo IV" ;
+                                             :SubFamilia "Spumavirus" ;
+                                             :maiorTamanho 11 ;
+                                             :menorTamanho 5 .
+
+
+###  http://www.semanticweb.org/ontologia-viral#Yellowtail_ascites_virus
+:Yellowtail_ascites_virus rdf:type owl:NamedIndividual ,
+                                   :Aquabirnavirus ;
+                          :Familia "Birnaviridae" ;
+                          :Grupo "Grupo III" ;
+                          :SubFamilia "Aquabirnavirus" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Arenaviridae
+                :Mononegavirales
+                :Ophioviridae
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointProperties ;
+  owl:members ( :Especies
+                :Familia
+                :Generos
+                :SubFamilia
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
